@@ -5,7 +5,7 @@
 <body>
 <hr>
 
-<h3>Hoofdmenu</h3>
+<h1>Hoofdmenu</h1>
 
     <p>Lamp
 <button> <img src="/assets/images/plaatje_lamp.jpg" alt="Lamp" style="width:100%;height:100%;">
