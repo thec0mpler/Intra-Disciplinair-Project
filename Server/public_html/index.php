@@ -1,5 +1,5 @@
 <?php require_once "../header.php"; ?>
 
-Content
+<div></div>
 
 <?php require_once "../footer.php"; ?>
