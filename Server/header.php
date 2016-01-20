@@ -18,3 +18,4 @@
 </div>
 
 <div id="content">
+    <div class="clearfix"></div>
