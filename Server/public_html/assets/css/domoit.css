@@ -52,15 +52,11 @@
 }
 
 #content h1 {
-	text-align: center;
+	text-align: center; 
 }
 
 #content p {
-	text-align: center;
-	font-size: 30px
+	text-align: center; 
+	font-size: 30px;
 }
 
-#content pa {
-	text-align: center;
-	font-size: 30px
-}
