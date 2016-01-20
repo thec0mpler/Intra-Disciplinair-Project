@@ -12,9 +12,13 @@
 <body>
 
 <div id="navigation">
-    <div class="back-button active"><a href="index.php">&larr;</a></div>
+    <a href="index.php" class="back-button active">
+        <img src="/assets/images/house-icon.png">
+    </a>
     <div class="name">DomoIT</div>
-    <div class="settings-button"><a href="opties.php"</a><img src="/assets/images/settings-icon.png"></div>
+    <a href="opties.php" class="settings-button">
+        <img src="/assets/images/settings-icon.png">
+    </a>
 </div>
 
 <div id="content">
