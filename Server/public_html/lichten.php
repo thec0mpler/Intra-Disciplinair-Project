@@ -5,7 +5,7 @@
     <br>
            AAN
 
-        <button> <img src= "lamp aan.png" alt="Lamp aanzetten" width="100%"; height="100%">"
+        <button><img src= "lamp aan.png" alt="Lamp aanzetten" width="100%"; height="100%">"
         </button>
     </p>
 
