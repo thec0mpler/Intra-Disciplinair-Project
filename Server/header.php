@@ -12,9 +12,9 @@
 <body>
 
 <div id="navigation">
-    <div class="back-button active">&larr;</div>
+    <div class="back-button active"><a href="index.php">&larr;</a></div>
     <div class="name">DomoIT</div>
-    <div class="settings-button"><img src="/assets/images/settings-icon.png"></div>
+    <div class="settings-button"><a href="opties.php"</a><img src="/assets/images/settings-icon.png"></div>
 </div>
 
 <div id="content">
