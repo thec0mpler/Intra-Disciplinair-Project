@@ -23,23 +23,45 @@
 
 <div id="content">
     <div class="clearfix"></div>
+<!--==========================================-->
 
 
-<h2>Selecteer de woning die u wilt bekijken</h2>
 
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="woning_1.php">Woning 1</a></li>
-    <li><a href="woning_2.php">Woning 2</a></li>
-    <li><a href="woning_3.php">Woning 3</a></li>
-  </ul>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1>Kies de woning</h1>
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+    <?php
+    for ($i=0; $i < 15; $i++) {
+        ?>
+        <li><a href="woning_1.php">woning 1</a></li>
+      <li><a href="woning_2.php">woning 2</a></li>
+      <li><a href="woning_3.php">woning 3</a></li>
+
+        <?php
+    }
+    ?>
+    </ul>
+  </div>
+
+
+
 </div>
 
+</body>
 
-
-
+<!--==========================================-->
+</div>
 </div>
 
 </body>
