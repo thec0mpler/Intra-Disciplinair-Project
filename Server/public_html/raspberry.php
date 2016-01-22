@@ -2,8 +2,10 @@
 
 if (isset($_GET['create'])) {
     $commands = [
-        "pwd",
-        "11 0 && pwd"
+        "from" => 101,
+        "action" => "light/switch",
+        "light" => 1,
+        "status" => 1
     ];
 
     print("<pre>");
