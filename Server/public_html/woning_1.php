@@ -6,8 +6,37 @@
 
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/domoit.css" rel="stylesheet">
+<style>
+#container {
+    margin: 0px auto;
+    width: 500px;
+    height: 375px;
+    border: 10px #333 solid;
+}
+#videoElement {
+    width: 500px;
+    height: 375px;
+    background-color: #666;
+}
+var video = document.querySelector("#videoElement");
+
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+if (navigator.getUserMedia) {
+    navigator.getUserMedia({video: true}, handleVideo, videoError);
+}
+
+function handleVideo(stream) {
+    video.src = window.URL.createObjectURL(stream);
+}
+
+function videoError(e) {
+    // do something
+}
 
     <title>DomoIT</title>
+    </style>
+</script>
 </head>
 <body>
 
@@ -22,25 +51,45 @@
 </div>
 
 <div id="content">
-    <div class="clearfix"></div>
+<div class="clearfix"></div>
+<body>
+<br><br>
+<p>Woning "nr. halen uit de database"</p><br><br>
+<p class="bewoner_gegevens">
+=====================
+<table width="450"; border="1">
+    <tr>
+        <th>Naam bewoner:         </th>
+        <th>"naam ophalen:    "</th>
+    </tr>
+    <tr>
+        <th>Leeftijd</th>
+        <th>"Leeftijd ophalen"</th>
+    </tr>
+</table>
+<div id="container">
+    <video autoplay="true" id="videoElement">
+
+    </video>
+</div><br>
+========================
+<p>                                                         <video width="50%" height="50%" controls poster="/test video & audio/video/Snowball.png"  >
+    <source src="/test video & audio/video/Snowball.mp4" type="video/mp4" />
+    <source src="/test video & audio/video/Snowball.ogv" type="video/ogg" />
+    <source src="/test video & audio/video/Snowball.wbem" type="video/webm" />
+    <em>Sorry, your browser doesn't support HTML5 video.</em>
+</video>
+
+<form action="logboek.asp">
+  <p>Informatie over de bewoner:</p><br>
+  <input type="text" name="fname" class="text_log"><br>
+
+  <input type="submit" value="Submit" class="submitted">
+</form>
+</p>
 
 
-Selecteer de woning die u wilt bekijken
 
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="woning_1.php">Woning 1</a></li>
-    <li><a href="woning_2.php">Woning 2</a></li>
-    <li><a href="woning_3.php">Woning 3</a></li>
-  </ul>
-</div>
-
-
-
-
-</div>
 
 </body>
 </html>

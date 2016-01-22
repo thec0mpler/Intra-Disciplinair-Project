@@ -25,7 +25,6 @@
     <div class="clearfix"></div>
 
 
-
 <button onclick="location.href='woningselectie.php'" >Selecteer woning</button><br>
 <button onclick="location.href='meldingen.php'" >Hulpoproepen</button><br>
 
