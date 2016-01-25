@@ -15,9 +15,11 @@
 
 <p>
 
-    <button>AAN</button>
-    <button>UIT</button>
+    <button class ="camera">AAN</button>
+    <button class="camera" onclick="camera staat uit">UIT</button>
 
+=====Functie camera aan/uit====
+=====Functie camera aan/uit====
 </p>
 
 

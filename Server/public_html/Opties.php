@@ -5,20 +5,24 @@
 <Br>
 Beste gebruiker<br><br>
 
-Als u van tosti's houdt
-kunt hier inloggen met ketchup<br><br>
+<h2> kunt hier inloggen</h2><br><br><br>
 
-<form>
+<form class="login">
     Gebruikersnaam:<br>
+
+========Funtie schrijven naar login database=====
+
     <input type= "text" name = "Gebruikersnaam"><br><br>
     Wachtwoord:<br>
     <input type = "password" name = "Wachtwoord"><br>
+
+    ========Funtie schrijven naar login database=====
 </form>
 
 
-<img src="/assets/images/tosti.jpg">
 
-Stelletje tosti's
+
+
 </p>
 
 

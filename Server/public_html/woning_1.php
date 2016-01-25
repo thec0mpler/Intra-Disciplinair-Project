@@ -8,6 +8,7 @@
     <link href="/assets/css/domoit.css" rel="stylesheet">
 
     <title>DomoIT</title>
+
 </head>
 <body>
 
@@ -16,31 +17,53 @@
         <img src="/assets/images/house-icon.png">
     </a>
     <div class="name">DomoIT</div>
-    <a href="opties_begeleiders.php" class="settings-button">
-        <img src="/assets/images/settings-icon.png">
-    </a>
 </div>
-
 <div id="content">
-    <div class="clearfix"></div>
+<div class="clearfix"></div>
+<body>
+<br><br>
+<p>Woning "nr. halen uit de database"</p><br><br>
+<p class="bewoner_gegevens">
+
+<table width="450"; border="1">
+    <tr>
+        <th>Naam bewoner:         </th>
+        <th>"naam ophalen:    "</th>
+    </tr>
+    <tr>
+        <th>Leeftijd</th>
+        <th>"Leeftijd ophalen"</th>
+    </tr>
+</table>
+<br>
+
+<p>
+                                                      <video width="50%" height="50%" controls poster="/test video & audio/video/Snowball.png"  >
+    <source src="/test video & audio/video/Snowball.mp4" type="video/mp4" />
+    <source src="/test video & audio/video/Snowball.ogv" type="video/ogg" />
+    <source src="/test video & audio/video/Snowball.wbem" type="video/webm" />
+    <em>Sorry, your browser doesn't support HTML5 video.</em>
+</video>
+
+<?php
+echo "<pre>";
+var_dump($_POST);
+echo "</pre>";
+?>
+
+<form action="#" method="post">
+  <p>Informatie over de bewoner:</p><br>
+  <input type="text" name="fname" class="text_log"><br>
+  <input type="submit" value="Submit" class="submitted">
+</form>
 
 
-Selecteer de woning die u wilt bekijken
 
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="woning_1.php">Woning 1</a></li>
-    <li><a href="woning_2.php">Woning 2</a></li>
-    <li><a href="woning_3.php">Woning 3</a></li>
-  </ul>
-</div>
+
+</p>
 
 
 
-
-</div>
 
 </body>
 </html>
