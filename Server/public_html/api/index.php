@@ -33,11 +33,11 @@ if (empty($raspberrypiIp))
 $request->accepted = true;
 
 // Generate URL
-#$url = "http://" . $raspberrypiIp . "/api/?" .urlencode($_GET["json"]);
-$url = "http://" . $raspberrypiIp;
+$url = "http://" . $raspberrypiIp . "/?" .urlencode($_GET["json"]);
+#$url = "http://" . $raspberrypiIp;
 
 // Send request to Raspberry Pi
-#var_dump(htmlentities(file_get_contents($url)));
+var_dump(htmlentities(file_get_contents($url)));
 
 response([
     "code" => 200,

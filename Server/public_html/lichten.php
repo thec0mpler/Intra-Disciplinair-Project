@@ -1,7 +1,51 @@
 <?php require_once "../header.php"; ?>
-    <br>
-        <h1>Lampbediening</h1>
-<p>
+
+<h1>Lampbediening</h1>
+
+<?php
+$gebruiker = 1;
+$woning = 1;
+
+$lampen = $dbh->query("
+    SELECT id, locatie, status
+    FROM lamp
+    WHERE woning = " . $woning)->fetchAll();
+
+foreach ($lampen as $lamp) {
+    if ($lamp["status"] == 1)
+        $src = "/assets/images/lamp_aan.png";
+    else
+        $src = "/assets/images/lamp_uit.png";
+
+    echo "<p>" . $lamp["locatie"] . "</p>";
+    echo '<img onclick="schakelLamp(this)" class="lamp" data-id="' . $lamp["id"] . '" src="' . $src  .'" width="100%" height="100%">';
+}
+?>
+
+<script type="text/javascript">
+    function schakelLamp(element) {
+        // var lamp_id = element.dataset.id;
+        var lamp_id = 11;
+        var lamp_status = (element.src.match("lamp_aan") ? true : false)
+
+        var server_opdracht = {
+            "from": <?php echo $gebruiker; ?>,
+            "action": "light/switch",
+            "light": parseInt(lamp_id),
+            "status": (!lamp_status ? 1 : 0)
+        }
+
+        opdrachtServer(server_opdracht);
+
+        if (lamp_status) {
+            element.src = "/assets/images/lamp_uit.png";
+        } else {
+            element.src = "/assets/images/lamp_aan.png";
+        }
+    }
+</script>
+
+<!-- <p>
     <br>
     <br>
 <p> Lamp 1</p>
@@ -35,7 +79,7 @@ function changeImage2() {
 =======funtie lamp aan/uit=====
 lamp 1 + 2
 =======funtie lamp aan/uit=====</p>
-    </p>
+    </p> -->
 
 
 

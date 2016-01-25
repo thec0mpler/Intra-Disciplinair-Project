@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+<?php
+// Database
+$databaseFile = __DIR__ . "/database.db";
+
+$dbh = new PDO("sqlite:" . $databaseFile, null, null, [
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+]);
+
+function dump($string) {
+    echo "<pre>";
+    var_dump($string);
+    echo "</pre>";
+}
+?><!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="utf-8">

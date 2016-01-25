@@ -2,7 +2,7 @@
 
 if (isset($_GET['create'])) {
     $commands = [
-        "from" => 101,
+        "from" => 1,
         "action" => "light/switch",
         "light" => 1,
         "status" => 1
