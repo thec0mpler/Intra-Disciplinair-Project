@@ -22,27 +22,26 @@
 <div id="content">
     <div class="clearfix"></div>
 
-<p class="meldingen"><b>
 
-	Alle meldingen komen hier binnen
+
+
+
+    </div>
+
+<h1 class ="logboek">Alle meldingen kun je hier bekijken</h1>
+<p>
 
 ========FUNCTIE SCHRIJVEN NAAR DATABASE=====
 <br><br><br>
-If melding:
+For all "meldingen":
 
 <br><br><br><br><br><br><br>
 
-"show content"<br><br><br><br><br>
+"show content"<br><br><br><br><br>	
 
 
 ========FUNCTIE SCHRIJVEN NAAR DATABASE=====
 </p>
-
-
-
-
-</div>
-
 </body>
 </html>
 

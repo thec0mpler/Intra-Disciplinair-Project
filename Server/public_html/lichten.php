@@ -31,6 +31,10 @@ function changeImage2() {
     }
 }
 </script>
+<p>
+=======funtie lamp aan/uit=====
+lamp 1 + 2
+=======funtie lamp aan/uit=====</p>
     </p>
 
 

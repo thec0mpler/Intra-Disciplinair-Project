@@ -25,7 +25,7 @@
     <div class="clearfix"></div>
 
 
-Hier komen de opties voor de begeleiders
+<h1>Optiemenu begeleiders</h1>
 
 
 

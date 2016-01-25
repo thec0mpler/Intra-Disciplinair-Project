@@ -16,9 +16,7 @@
         <img src="/assets/images/house-icon.png">
     </a>
     <div class="name">DomoIT</div>
-    <a href="opties_begeleiders.php" class="settings-button">
-        <img src="/assets/images/settings-icon.png">
-    </a>
+
 </div>
 
 <div id="content">

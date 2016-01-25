@@ -20,7 +20,7 @@ function handleVideo(stream) {
 }
 
 function videoError(e) {
-    // do something
+    video werkt niet
 </script>
 <style>
 #container {
