@@ -1,6 +1,4 @@
 <?php
-// var_dump($_GET["json"]);
-
 // Database
 $databaseFile = __DIR__ . "/../../database.db";
 
@@ -15,16 +13,13 @@ function response($array) {
 // Validate $_GET["json"], on error: print error and exit
 require_once "./validate.php";
 
-// echo "<pre>";
-// var_dump($request);
-// echo "</pre>";
-
 // Find IP from raspberry
 $stmt = $dbh->prepare("
     SELECT raspberrypi.ip
     FROM gebruiker as gebruiker
     JOIN woning on gebruiker.woning = woning.id
-    JOIN raspberrypi on woning.raspberrypi = raspberrypi.id");
+    JOIN raspberrypi on woning.raspberrypi = raspberrypi.id
+    WHERE gebruiker.id = " . $request->from);
 $stmt->execute();
 
 $raspberrypiIp = $stmt->fetchColumn();
@@ -35,10 +30,7 @@ if (empty($raspberrypiIp))
         "message" => "Geen Raspberry Pi gevonden."
     ]);
 
-response([
-    "code" => 200,
-    "message" => "Succesvolle opdracht!"
-]);
+$request->accepted = true;
 
 // Generate URL
 #$url = "http://" . $raspberrypiIp . "/api/?" .urlencode($_GET["json"]);
@@ -46,3 +38,8 @@ $url = "http://" . $raspberrypiIp;
 
 // Send request to Raspberry Pi
 #var_dump(htmlentities(file_get_contents($url)));
+
+response([
+    "code" => 200,
+    "message" => "Succesvolle opdracht!"
+]);
