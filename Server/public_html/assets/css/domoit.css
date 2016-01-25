@@ -144,3 +144,7 @@ ul.dropdown-menu li a {
 	font-size: 30px;
 }
 
+#content button.hulpbutton{
+	width: 100%;
+	height: 5em;
+}
