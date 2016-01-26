@@ -1,5 +1,0 @@
-goed
-%7B%22from%22%3A101%2C%22action%22%3A%22light%5C%2Fswitch%22%2C%22light%22%3A1%2C%22status%22%3A1%7D
-
-fout 
-%7B%22from%22%3A101%2C%22action%22%3A%22light%5C%2Fswitch%22%2C%22light%22%3A1%2C%22status%22%3A1%7

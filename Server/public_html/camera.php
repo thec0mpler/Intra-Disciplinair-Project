@@ -1,28 +1,19 @@
 <?php require_once "../header.php"; ?>
-<br>
 
-    <h1>Camerabediening</h1>
-    <hr>
-<br>
-<br>
+<h1>Camerabediening</h1>
 
-<video width="100%" height="100%" controls poster="/test video & audio/video/Snowball.png"  >
-    <source src="/test video & audio/video/Snowball.mp4" type="video/mp4" />
-    <source src="/test video & audio/video/Snowball.ogv" type="video/ogg" />
-    <source src="/test video & audio/video/Snowball.wbem" type="video/webm" />
+<center>
+<img alt="http://192.168.0.101:8081/" src="http://192.168.0.101:8081/">
+</center>
+<!-- <iframe src="http://192.168.0.101:8081/" style="border: 0; width: 176px; height: 144px; overflow: hidden;"></iframe> -->
+<!-- <video width="100%" height="100%" controls poster="/test video &amp; audio/video/Snowball.png">
+    <source src="/test video &amp; audio/video/Snowball.mp4" type="video/mp4" />
+    <source src="/test video &amp; audio/video/Snowball.ogv" type="video/ogg" />
+    <source src="/test video &amp; audio/video/Snowball.wbem" type="video/webm" />
     <em>Sorry, your browser doesn't support HTML5 video.</em>
-</video>
+</video> -->
 
-<p>
-
-    <button class ="camera">AAN</button>
-    <button class="camera" onclick="camera staat uit">UIT</button>
-
-=====Functie camera aan/uit====
-=====Functie camera aan/uit====
-</p>
-
-
-
+<button>AAN</button>
+<button>UIT</button>
 
 <?php require_once "../footer.php"; ?>

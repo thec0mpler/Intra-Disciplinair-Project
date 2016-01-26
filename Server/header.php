@@ -11,6 +11,9 @@ function dump($string) {
     var_dump($string);
     echo "</pre>";
 }
+
+$gebruiker = 1;
+$woning = 1;
 ?><!DOCTYPE html>
 <html lang="nl">
 <head>
