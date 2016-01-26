@@ -9,7 +9,7 @@
         $.ajax({
             url: "/api/?json=" + json,
         }).done(function(data) {
-            alert(data);
+            console.log(data);
         }).error(function() {
             alert("ERROR");
         });

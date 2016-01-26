@@ -24,8 +24,7 @@ foreach ($lampen as $lamp) {
 
 <script type="text/javascript">
     function schakelLamp(element) {
-        // var lamp_id = element.dataset.id;
-        var lamp_id = 11;
+        var lamp_id = element.dataset.id;
         var lamp_status = (element.src.match("lamp_aan") ? true : false)
 
         var server_opdracht = {

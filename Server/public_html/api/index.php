@@ -19,10 +19,11 @@ $stmt = $dbh->prepare("
     FROM gebruiker as gebruiker
     JOIN woning on gebruiker.woning = woning.id
     JOIN raspberrypi on woning.raspberrypi = raspberrypi.id
-    WHERE gebruiker.id = " . $request->from);
+    WHERE gebruiker.id = " . intval($request->from));
 $stmt->execute();
 
 $raspberrypiIp = $stmt->fetchColumn();
+$raspberrypiGpioPin = intval($dbh->query("SELECT gpio_pin FROM lamp WHERE id = " . intval($request->light))->fetchColumn());
 
 if (empty($raspberrypiIp))
     response([
@@ -31,15 +32,30 @@ if (empty($raspberrypiIp))
     ]);
 
 $request->accepted = true;
+$request->gpio_pin = $raspberrypiGpioPin;
 
 // Generate URL
-$url = "http://" . $raspberrypiIp . "/?" .urlencode($_GET["json"]);
+$url = "http://" . $raspberrypiIp . "/?json=" . urlencode(json_encode($request));
 #$url = "http://" . $raspberrypiIp;
 
 // Send request to Raspberry Pi
-var_dump(htmlentities(file_get_contents($url)));
+$response = intval(file_get_contents($url));
 
-response([
-    "code" => 200,
-    "message" => "Succesvolle opdracht!"
-]);
+if ($response == 200) {
+    if ($request->action == "light/switch") {
+        $dbh->query("
+            UPDATE lamp
+            SET status = " . $request->status . "
+            WHERE id = " . $request->light);
+    }
+
+    response([
+        "code" => 200,
+        "message" => "Succesvolle opdracht!"
+    ]);
+} else {
+    response([
+        "code" => 500,
+        "message" => "Fout bij Raspberry Pi!"
+    ]);
+}
