@@ -7,7 +7,8 @@ $dbh = new PDO("sqlite:" . $databaseFile, null, null, [
 ]);
 
 function response($array) {
-    exit(json_encode($array));
+    echo json_encode($array);
+    exit();
 }
 
 // Validate $_GET["json"], on error: print error and exit
@@ -40,17 +41,16 @@ $request->accepted = true;
 if (isset($raspberrypiIp)) {
     // Generate URL
     $url = "http://" . $raspberrypiIp . "/?json=" . urlencode(json_encode($request));
-    #$url = "http://" . $raspberrypiIp;
 
     // Send request to Raspberry Pi
     $response = intval(file_get_contents($url));
 
     if ($response == 200) {
         if ($request->action == "light/switch") {
-            $dbh->query("
-                UPDATE lamp
-                SET status = " . $request->status . "
-                WHERE id = " . $request->light);
+            // $dbh->query("
+            //     UPDATE lamp
+            //     SET status = " . $request->status . "
+            //     WHERE id = " . $request->light);
         }
 
         response([

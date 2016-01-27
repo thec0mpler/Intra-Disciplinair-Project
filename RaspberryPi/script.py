@@ -17,7 +17,7 @@ for value in program_arguments:
 
 # Argument init
 if "action" not in arguments:
-	sys.exit("No action")
+    sys.exit("No action")
 
 # GPIO init
 GPIO.setmode(GPIO.BOARD)

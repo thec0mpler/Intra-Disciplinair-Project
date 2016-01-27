@@ -1,3 +1,12 @@
+html,
+body {
+	background-color: #fff;
+}
+
+dd {
+	margin-left: 30px;
+}
+
 #navigation {
 	position: fixed;
 	top: 0;
@@ -73,27 +82,42 @@
 
 a.button {
 	display: block;
-	margin: 15px;
+	margin: 15px 0;
 	height: 120px;
+	color: #000;
 	text-decoration: none;
 	text-align: center;
+	line-height: 120px;
+	border: #b9b9b9 solid 1px;
+	background-color: #dfdfdf;
 }
 
 a.button img {
-	height: 100px;
-	margin: 10px;
+	max-width: 100%;
+	max-height: 100px;
+	margin: 10px 0;
 }
 
 a.button.lamp {
+	border: 0;
 	background-color: #f39508;
 }
 
 a.button.camera {
+	border: 0;
 	background-color: #085a7c;
 }
 
-a.button.lamp:hover,
-a.button.camera:hover {
+a.button.hulp {
+	border: 0;
+	background-color: #fff;
+}
+
+/*a.button.lamp:hover,
+a.button.camera:hover {*/
+a.button:hover {
+	border-color: transparent;
+
 	-webkit-box-shadow:inset 0 2px 5px 0 #333;
 	box-shadow:inset 0 2px 5px 0 #333;
 }
@@ -112,7 +136,13 @@ a.button.hulp:hover {
 
 #content form.login {
 	text-align: center;
-	font-size: 40px
+}
+
+#content form.login > label,
+#content form.login > input {
+	display: block;
+	margin: 15px auto;
+	font-size: 24px;
 }
 
 #content button{
@@ -149,4 +179,15 @@ ul.dropdown-menu li a {
 #content button.hulpbutton{
 	width: 100%;
 	height: 5em;
+}
+
+
+table.meldingen td.status-open {
+	color: #fff;
+	background-color: #C81818;
+}
+
+table.meldingen td.status-closed {
+	color: #fff;
+	background-color: #18C818;
 }

@@ -1,8 +1,11 @@
 </div>
 
 <script type="text/javascript" src="/assets/js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    function opdrachtServer(opdracht, succes = false) {
+    function opdrachtServer(opdracht, succes) {
+        succes = typeof succes !== 'undefined' ? succes : false;
+
         var json = JSON.stringify(opdracht);
         json = encodeURIComponent(json);
 
@@ -12,12 +15,15 @@
         }).done(function(data) {
             if (succes)
                 succes(data);
-        }).error(function() {
+        }).fail(function(data) {
             alert("Er is iets fout gegaan.\nAls dit vaker gebeurd, neem dan contact op met uw zorginstelling.");
+            console.log(data);
         });
     }
 
     function schakelLamp(element) {
+        element = element.getElementsByTagName("img")[0];
+
         var lamp_id = element.dataset.id;
         var lamp_status = (element.src.match("lamp_aan") ? true : false)
 
@@ -29,11 +35,10 @@
         }
 
         opdrachtServer(server_opdracht, function() {
-            if (lamp_status) {
+            if (lamp_status)
                 element.src = "/assets/images/lamp_uit.png";
-            } else {
+            else
                 element.src = "/assets/images/lamp_aan.png";
-            }
         });
     }
 
@@ -44,7 +49,7 @@
         }
 
         opdrachtServer(server_opdracht, function(data) {
-            response = JSON.parse(data);
+            var response = JSON.parse(data);
 
             if (response.code == 200)
                 alert("Uw hulpoproep is verzonden");
