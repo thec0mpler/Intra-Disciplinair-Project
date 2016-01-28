@@ -36,7 +36,7 @@ $gebruiker = $woning = 1;
         <img src="/assets/images/house-icon.png">
     </a>
     <div class="name">DomoIT</div>
-    <a href="javascript:this.location='/login.php'" class="settings-button">
+    <a href="javascript:this.location='/<?php echo ($begeleider ? "begeleider/" : ""); ?>login.php'" class="settings-button">
         <img src="/assets/images/settings-icon.png">
     </a>
 </div>

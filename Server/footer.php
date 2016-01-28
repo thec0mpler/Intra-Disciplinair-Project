@@ -11,7 +11,6 @@
 
         $.ajax({
             url: "/api/?json=" + json,
-            timeout: 2000,
         }).done(function(data) {
             if (succes)
                 succes(data);
@@ -39,6 +38,24 @@
                 element.src = "/assets/images/lamp_uit.png";
             else
                 element.src = "/assets/images/lamp_aan.png";
+        });
+    }
+
+    function schakelCamera(element) {
+        var camera_id = element.dataset.gebruiker;
+        var camera_status = element.dataset.status;
+
+        var server_opdracht = {
+            "from": <?php echo $gebruiker; ?>,
+            "action": "camera/switch",
+            "woning": parseInt(camera_id),
+            "status": parseInt(camera_status)
+        }
+
+        opdrachtServer(server_opdracht, function(data) {
+            console.log("camera succes");
+            console.log(camera_status);
+            console.log(data);
         });
     }
 

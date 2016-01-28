@@ -14,7 +14,10 @@ function response($array) {
 // Validate $_GET["json"], on error: print error and exit
 require_once "./validate.php";
 
-if ($request->action == "light/switch") {
+if (in_array($request->action, [
+    "light/switch",
+    "camera/switch"
+    ])) {
     // Find IP from raspberry
     $stmt = $dbh->prepare("
         SELECT raspberrypi.ip
@@ -25,7 +28,6 @@ if ($request->action == "light/switch") {
     $stmt->execute();
 
     $raspberrypiIp = $stmt->fetchColumn();
-    $raspberrypiGpioPin = intval($dbh->query("SELECT gpio_pin FROM lamp WHERE id = " . intval($request->light))->fetchColumn());
 
     if (empty($raspberrypiIp))
         response([
@@ -33,7 +35,12 @@ if ($request->action == "light/switch") {
             "message" => "Geen Raspberry Pi gevonden."
         ]);
 
-    $request->gpio_pin = $raspberrypiGpioPin;
+    if ($request->action == "light/switch") {
+        $raspberrypiGpioPin = intval($dbh->query("SELECT gpio_pin FROM lamp WHERE id = " . intval($request->light))->fetchColumn());
+        $request->gpio_pin = $raspberrypiGpioPin;
+    } elseif ($request->action == "camera/switch") {
+
+    }
 }
 
 $request->accepted = true;
@@ -47,15 +54,22 @@ if (isset($raspberrypiIp)) {
 
     if ($response == 200) {
         if ($request->action == "light/switch") {
-            // $dbh->query("
-            //     UPDATE lamp
-            //     SET status = " . $request->status . "
-            //     WHERE id = " . $request->light);
+            $dbh->query("
+                UPDATE lamp
+                SET status = " . $request->status . "
+                WHERE id = " . $request->light);
+        }
+        if ($request->action == "camera/switch") {
+            $dbh->query("
+                UPDATE camera
+                SET status = " . $request->status . "
+                WHERE woning = " . $request->woning);
         }
 
         response([
             "code" => 200,
-            "message" => "Succesvolle opdracht!"
+            "message" => "Succesvolle opdracht!",
+            "rpi" => $response,
         ]);
     } else {
         response([

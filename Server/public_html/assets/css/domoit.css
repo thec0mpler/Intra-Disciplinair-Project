@@ -146,7 +146,7 @@ a.button.hulp:hover {
 }
 
 #content button{
-	font-size: 30px;
+	font-size: 24px;
     width: 100%;  
     height: 5em;
 }
@@ -159,6 +159,7 @@ a.button.hulp:hover {
 	text-align: center;
 	width: 100%;
 	height: 5em;
+	white-space: normal;
 }
 
 ul.dropdown-menu {
@@ -182,12 +183,33 @@ ul.dropdown-menu li a {
 }
 
 
-table.meldingen td.status-open {
+table.meldingen td.status ul.options {
+	margin: 0;
+	padding: 0;
+}
+
+table.meldingen td.status ul.options li {
+	/*display: none;*/
+	list-style: none;
+	padding: 7px 15px;
+	border: transparent 1px solid;
+}
+
+table.meldingen td.status ul.options li.active {
+	display: block;
+}
+
+table.meldingen td.status ul.options li.line {
+	padding: 0;
+	height: 2px;
+}
+
+table.meldingen .status-open {
 	color: #fff;
 	background-color: #C81818;
 }
 
-table.meldingen td.status-closed {
+table.meldingen .status-closed {
 	color: #fff;
 	background-color: #18C818;
 }

@@ -32,6 +32,18 @@ $validParameters = [
         "required" => [],
         "optional" => [],
     ],
+    "camera/switch" => [
+        "required" => [
+            "woning" => [
+                "type" => "int",
+            ],
+            "status" => [
+                "type" => "int",
+                "valid" => [0, 1],
+            ],
+        ],
+        "optional" => [],
+    ],
 ];
 
 if (empty($request->from) || !is_int($request->from)) {

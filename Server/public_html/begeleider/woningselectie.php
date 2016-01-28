@@ -12,14 +12,14 @@ $woningen = $dbh->query("
 
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle button" type="button" data-toggle="dropdown">
-            Selecteer een woning
+            Selecteer woning
             <span class="caret"></span>
         </button>
 
         <ul class="dropdown-menu">
             <?php
             foreach ($woningen as $woning) {
-                echo "<li><a href=\"woning.php?id=" . $woning["id"] . "\">" . $woning["nummer"] . "</a></li>";
+                echo "<li><a href=\"javascript:this.location='woning.php?id=" . $woning["id"] . "'\">" . $woning["nummer"] . "</a></li>";
             }
             ?>
         </ul>

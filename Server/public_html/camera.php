@@ -1,21 +1,22 @@
-<?php require_once "../header.php"; ?>
+<?php
+require_once "../header.php";
+
+$raspberrypi = $dbh->query("
+    SELECT raspberrypi.ip
+    FROM woning
+    LEFT JOIN raspberrypi on woning.raspberrypi = raspberrypi.id
+    WHERE woning.id = " . intval($gebruiker))->fetch();
+?>
 
 <div class="container">
     <h1>Camerabediening</h1>
 
     <center>
-    <img alt="http://192.168.0.105:8081/" src="http://192.168.0.105:8081/">
+        <img alt="Camera staat uit" src="http://<?php echo $raspberrypi["ip"]; ?>:8081/">
     </center>
-    <!-- <iframe src="http://192.168.0.101:8081/" style="border: 0; width: 176px; height: 144px; overflow: hidden;"></iframe> -->
-    <!-- <video width="100%" height="100%" controls poster="/test video &amp; audio/video/Snowball.png">
-        <source src="/test video &amp; audio/video/Snowball.mp4" type="video/mp4" />
-        <source src="/test video &amp; audio/video/Snowball.ogv" type="video/ogg" />
-        <source src="/test video &amp; audio/video/Snowball.wbem" type="video/webm" />
-        <em>Sorry, your browser doesn't support HTML5 video.</em>
-    </video> -->
 
-    <button>AAN</button>
-    <button>UIT</button>
+    <a href="#" onclick="javascript:schakelCamera(this); return false;" data-gebruiker="<?php echo $gebruiker; ?>" data-status="1" class="camera-toggle-on btn btn-success button">Aan</a>
+    <a href="#" onclick="javascript:schakelCamera(this); return false;" data-gebruiker="<?php echo $gebruiker; ?>" data-status="0" class="camera-toggle-off btn btn-danger button">Uit</a>
 </div>
 
 <?php require_once "../footer.php"; ?>
