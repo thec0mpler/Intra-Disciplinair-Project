@@ -15,6 +15,8 @@ for value in program_arguments:
     else:
         arguments["options"].append(value)
 
+print(arguments)
+
 # Argument init
 if "action" not in arguments:
     sys.exit("No action")
