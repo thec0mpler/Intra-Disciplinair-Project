@@ -1,3 +1,4 @@
+import os
 import sys
 import RPi.GPIO as GPIO
 
@@ -26,12 +27,20 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
 # Execute
-if arguments["action"] == "light/switch":
+if arguments["action"][0] == "light/switch":
 	# Format arguments
-	arguments["light"] = int(arguments["light"])
-	arguments["status"] = bool(int(arguments["status"]))
+	arguments["gpio_pin"] = int(arguments["gpio_pin"][0])
+	arguments["status"] = bool(int(arguments["status"][0]))
 
-	GPIO.setup(arguments["light"], GPIO.OUT)
-	GPIO.output(arguments["light"], arguments["status"])
+	GPIO.setup(arguments["gpio_pin"], GPIO.OUT)
+	GPIO.output(arguments["gpio_pin"], arguments["status"])
 
-print(arguments)
+if arguments["action"][0] =  "camera/switch":
+	print("camera/switch")
+
+	if arguments["status"] == 0:
+		os.system("motion stop")
+	else:
+		os.system("motion restart")
+
+print("200")
