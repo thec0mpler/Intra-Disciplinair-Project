@@ -12,6 +12,7 @@
         $.ajax({
             url: "/api/?json=" + json,
         }).done(function(data) {
+            console.log(data);
             if (succes)
                 succes(data);
         }).fail(function(data) {
@@ -53,9 +54,15 @@
         }
 
         opdrachtServer(server_opdracht, function(data) {
-            console.log("camera succes");
-            console.log(camera_status);
-            console.log(data);
+            if (camera_status == 1) {
+                document.getElementById("stream-on").style.display = "none";
+                document.getElementById("stream-off").style.display = "block";
+            } else {
+                document.getElementById("stream-on").style.display = "block";
+                document.getElementById("stream-off").style.display = "none";
+            }
+
+            document.getElementById("stream").src = document.getElementById("stream").src;
         });
     }
 
@@ -68,10 +75,19 @@
         opdrachtServer(server_opdracht, function(data) {
             var response = JSON.parse(data);
 
-            if (response.code == 200)
+            if (response.code == 200) {
+                var server_opdracht = {
+                    "from": <?php echo $gebruiker; ?>,
+                    "action": "camera/switch",
+                    "woning": <?php echo $gebruiker; ?>,
+                    "status": 1
+                }
+                opdrachtServer(server_opdracht);
+
                 alert("Uw hulpoproep is verzonden");
-            else
+            } else {
                 alert("Fout bij verwerken");
+            }
         });
     }
 </script>

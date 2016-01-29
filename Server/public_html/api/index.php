@@ -50,7 +50,8 @@ if (isset($raspberrypiIp)) {
     $url = "http://" . $raspberrypiIp . "/?json=" . urlencode(json_encode($request));
 
     // Send request to Raspberry Pi
-    $response = intval(file_get_contents($url));
+    #$response = intval(file_get_contents($url));
+    $response = file_get_contents($url);
 
     if ($response == 200) {
         if ($request->action == "light/switch") {
@@ -74,7 +75,10 @@ if (isset($raspberrypiIp)) {
     } else {
         response([
             "code" => 500,
-            "message" => "Fout bij Raspberry Pi!"
+            "message" => "Fout bij Raspberry Pi!",
+            "url" => $url,
+            "request" => $request,
+            "response" => $response,
         ]);
     }
 }
