@@ -28,19 +28,17 @@ GPIO.setwarnings(False)
 
 # Execute
 if arguments["action"][0] == "light/switch":
-	# Format arguments
-	arguments["gpio_pin"] = int(arguments["gpio_pin"][0])
-	arguments["status"] = bool(int(arguments["status"][0]))
+    # Format arguments
+    arguments["gpio_pin"] = int(arguments["gpio_pin"][0])
+    arguments["status"] = bool(int(arguments["status"][0]))
 
-	GPIO.setup(arguments["gpio_pin"], GPIO.OUT)
-	GPIO.output(arguments["gpio_pin"], arguments["status"])
+    GPIO.setup(arguments["gpio_pin"], GPIO.OUT)
+    GPIO.output(arguments["gpio_pin"], arguments["status"])
 
-if arguments["action"][0] =  "camera/switch":
-	print("camera/switch")
-
-	if arguments["status"] == 0:
-		os.system("motion stop")
-	else:
-		os.system("motion restart")
+if arguments["action"][0] == "camera/switch":
+    if arguments["status"][0] == 0:
+        os.system("sudo killall motion")
+    else:
+        os.system("sudo motion -c /home/pi/motion.conf")
 
 print("200")
